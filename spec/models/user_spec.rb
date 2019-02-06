@@ -30,6 +30,10 @@ RSpec.describe User, type: :model do
   it "password should be proper" do
   	
   end
+
+  it "should have many activities" do
+  	should have_many(:activities)
+  end
   
 
 
