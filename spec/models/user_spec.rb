@@ -19,7 +19,7 @@ RSpec.describe User, type: :model do
   	user = User.new(email: "test@mail.ru", password_digest: "Secret123")
   	user2 = User.new(email: "test@mail.ru", password_digest: "Secret123")
 
-  	expect(user2).to_not be_valid
+  	should validate_uniqueness_of(:email)
   	
   end
 
