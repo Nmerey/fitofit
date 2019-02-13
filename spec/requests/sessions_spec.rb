@@ -12,20 +12,11 @@ RSpec.describe 'Sessions', type: :request do
 
 			it 'should return sign in page' do
 
-				expect(response).to have_http_status(200)
+				expect(response).to redirect_to(sign_in_path)
 
 			end
 		end
-
-		context 'If signed in' do
-
-			before { session[:user_id] = user.id}
-
-			it 'should redirect to users page' do
-
-				expect(response).to redirect_to(user_path(user.id))
-			end
-		end
+		
 
 
 	end

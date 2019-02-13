@@ -15,8 +15,10 @@
         <a class="nav-link" href="#">Pricing</a>
       </li>
     </ul>
-    <span class="navbar-text">
-      Navbar text with an inline element
+    <span class="navbar-text"> 
+      <% if !session[:user_id].blank? %>
+        <%= link_to "Sign Out", sign_out_path %>
+      <% end%>
     </span>
   </div>
 </nav>
