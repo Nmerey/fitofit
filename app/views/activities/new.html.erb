@@ -1,11 +1,11 @@
 <%= form_for @activity do |f| %>
  <div class='form-group'>
-    <%= f.label :start_point %>
-    <%= f.text_field :start_point, class: 'form-control' %>
+
+    <%= f.text_field :start_point, class: 'form-control', placeholder: 'Starting Point' %>
   </div>
   <div class='form-group'>
-    <%= f.label :end_point %>
-    <%= f.text_field :end_point, class: 'form-control' %>
+    
+    <%= f.text_field :end_point, class: 'form-control', placeholder: 'Ending Point' %>
   </div>
   <%= f.submit 'Add Activity', class: 'btn btn-primary' %>
 <% end %>
