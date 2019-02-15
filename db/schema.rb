@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_05_233423) do
+ActiveRecord::Schema.define(version: 2019_02_15_014942) do
 
   create_table "activities", force: :cascade do |t|
     t.integer "distance"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "start_point"
+    t.string "end_point"
     t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
