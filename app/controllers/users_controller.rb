@@ -10,6 +10,8 @@ class UsersController < ApplicationController
 	def show
 
 		@user = User.find(params[:id])
+		@last_activity = Activity.where(user_id: @user.id).last
+		@last_week_activity = Activity.select {|actv| actv.created_at.mjd >= (Date.today.mjd - 7)}
 		
 	end
 
