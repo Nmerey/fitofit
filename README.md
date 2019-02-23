@@ -2,7 +2,19 @@
 
 App that keeps track of your moving activities from point A to B in km.
 
-## Gems
+## Tech Used
 
-Geocoder - https://github.com/alexreisner/geocoder
-Byebug - https://github.com/deivid-rodriguez/byebug
+Sqlite3 for DB
+Rails 5.2.2
+Ruby 2.5.1
+Bootstrap 4.3
+
+### Gems
+
+Geocoder,Byebug,FactoryBot,Rspec,Faker,Puma.
+
+## Instalation and Running
+
+
+`` bundle install ``
+`` rails s ``
