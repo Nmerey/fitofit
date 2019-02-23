@@ -1,25 +1,28 @@
-<div class="card-group">
-	<div class="card text-white bg-dark mb-3 mr-3" style="max-width: 18rem;">
+<div class="card-deck">
+	<div class="card text-center text-white bg-dark mb-3 mr-3" style="max-width: 18rem;">
 		<div class="card-header">Last Activity <%= time_ago_in_words(@last_activity.created_at)%> ago</div>
 		<div class="card-body">
-			<h5 class="card-title">From <%=@last_activity.start_point%> to <%=@last_activity.end_point%></h5>
-			<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+			<h5 class="card-title"><%=@last_activity.start_point%> to <%=@last_activity.end_point%></h5>
+			<p class="card-text display-3"><%= @last_activity.distance%> km</p>
 		</div>
 	</div>
-	<div class="card text-white bg-dark mb-3 mr-3" style="max-width: 18rem;">
-		<div class="card-header">Average last week</div>
+	<div class="card text-center text-white bg-dark mb-3 mr-3" style="max-width: 18rem;">
+		<div class="card-header">Last week average</div>
 		<div class="card-body">
-			<h5 class="card-title">From <%=@last_activity.start_point%> to <%=@last_activity.end_point%></h5>
-			<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+			<p class="card-text display-2"><%= @last_week_average %> km</p>
 		</div>
 	</div>
 
-	<div class="card text-white bg-dark mb-3 mr-3" style="max-width: 18rem;">
-		<div class="card-header">Average last week</div>
+	<div class="card text-white text-center bg-dark mb-3 mr-3">
+
+		<div class="card-header">Last month average</div>
 		<div class="card-body">
-			<h5 class="card-title">From <%=@last_activity.start_point%> to <%=@last_activity.end_point%></h5>
-			<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+			<p class="card-text display-2"><%= @last_month_average %> km</p>
+			<a href="<%=user_activities_path(@user)%>" class="btn btn-outline-light">Statistics</a>
 		</div>
+
+		
 	</div>
 
 

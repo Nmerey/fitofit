@@ -10,9 +10,22 @@ class UsersController < ApplicationController
 	def show
 
 		@user = User.find(params[:id])
-		@last_activity = Activity.where(user_id: @user.id).last
-		@last_week_activity = Activity.select {|actv| actv.created_at.mjd >= (Date.today.mjd - 7)}
-		
+		all_activities = Activity.where(user_id: @user.id)
+		@last_activity = all_activities.last
+
+
+		if @last_activity.nil?
+			flash[:danger] = "Do not posses any Statistics so far!"
+			redirect_to root_path
+			
+		end
+
+		@last_week_activity = all_activities.select {|actv| actv.created_at.to_date.mjd >= (Date.today.mjd - 7)}
+		@last_week_distance_sum = @last_week_activity.map {|actv| actv.distance }.compact.sum
+		@last_week_average = @last_week_distance_sum / @last_week_activity.count
+
+		@last_month_activity = all_activities.select {|actv| actv.created_at.to_date.mjd >= (Date.today.mjd - 30)}
+		@last_month_average = @last_month_activity.map {|actv| actv.distance }.compact.sum / @last_month_activity.count
 	end
 
 	def create

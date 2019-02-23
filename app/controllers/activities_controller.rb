@@ -7,6 +7,9 @@ class ActivitiesController < ApplicationController
 	def create
 		@activity = Activity.new(activity_params)
 		@activity.user_id = session[:user_id]
+		start_point = Geocoder.coordinates(activity_params[:start_point])
+		end_point = Geocoder.coordinates(activity_params[:end_point])
+		@activity.distance = Geocoder::Calculations.distance_between(start_point,end_point,units: :km)
 
 
 		if @activity.save
@@ -16,6 +19,12 @@ class ActivitiesController < ApplicationController
 
 			render :new
 		end
+	end
+
+	def index
+		all_activities = Activity.where(user_id: params[:user_id])
+		@last_month_activities= all_activities.select {|actv| actv.created_at.to_date.mjd >= (Date.today.mjd - 30)}
+		
 	end
 
 

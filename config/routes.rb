@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   get 'sign_in', to: 'sessions#new'
   get 'sign_out', to: 'sessions#destroy'
 
-  resources :users
+  resources :users do
+  	resources :activities, only: [:index]
+  end
 
   resources :sessions, only:[:create]
 

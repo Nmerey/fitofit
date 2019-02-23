@@ -1,24 +1,28 @@
 <% if flash[:error] %>
-	<%= flash[:error] %>
+<%= flash[:error] %>
 <% elsif flash[:success] %>
-	<%= flash[:success] %>
+<%= flash[:success] %>
 <% end %>
 
+<div class="text-center">
+
+	<%= form_for :session, url: sessions_path do |f| %>
+
+	<div class="mx-auto col-lg-3">
+		<%= f.label :email, class: 'sr-only' %>
+		<%= f.email_field :email, class: 'form-control', placeholder: 'Email' %>
 
 
-<%= form_for :session, url: sessions_path do |f| %>
+		<%= f.label :password, class: 'sr-only' %>
+		<%= f.password_field :password, class: 'form-control', placeholder: 'Password' %>
 
-<%= f.label :email %>
-<%= f.email_field :email, class: 'form-control', placeholder: 'Email' %>
+		
+	</div>
 
+	<%= f.submit 'Log In', class: 'btn btn-primary my-2' %>
 
-<%= f.label :password %>
-<%= f.password_field :password, class: 'form-control', placeholder: 'Password' %>
-
-
-<%= f.submit 'Log In', class: 'btn btn-primary' %>
-
-<% end %>
+	<% end %>
 
 
-New User? <%= link_to 'Click here to create an account.', new_user_path %>
+	New User? <%= link_to 'Click here to create an account.', new_user_path %>
+</div>
