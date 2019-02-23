@@ -15,5 +15,5 @@ Geocoder,Byebug,FactoryBot,Rspec,Faker,Puma.
 
 ## Instalation and Running
 
-``` bundle install ```
-``` rails s ```
+``` bundle install 
+rails s```
