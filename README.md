@@ -1,24 +1,8 @@
-# README
+# FitoFit
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+App that keeps track of your moving activities from point A to B in km.
 
-Things you may want to cover:
+## Gems
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Geocoder - https://github.com/alexreisner/geocoder
+Byebug - https://github.com/deivid-rodriguez/byebug
